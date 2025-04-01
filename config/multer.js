@@ -6,22 +6,22 @@ const multer = require("multer");
 const path = require("path");
 
 // MulterError, onde os arquivos serão salvos
-const strorage = multer.diskStrorage({
+const storage = multer.diskStorage({
     // Função que define o destino do arquivo
 
-    descrition: function ( req, file, cb) {
+    destination: function ( req, file, cb) {
         // O destino é a pasta uploas
         cb(null, "uploads/"); //null significa que não há erro
     },
     // Função que define o nome do arquivo para salvar
     filename: function(req, file, cb) {
         // Data + Estensao do arquivo
-        cb(null, Date.now() + path.extname(file.originalmente));
+        cb(null, Date.now() + path.extname(file.originalname));
     },
 });
 
 // middleware do multer
-const upload = multer({ strorage });
+const upload = multer({ storage });
 
 // Exporta para utilizar em outro arquivo
 module.exports = upload;

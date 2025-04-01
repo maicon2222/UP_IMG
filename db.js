@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 
 // Configurando para permitir consultas (restritas)
-mongoose.set("StrictQuery", true);
+mongoose.set("strictQuery", true);
 const dbUser = process.env.DB_USER;
 const dbPassword = process.env.DB_PASS;
 const mongoURI = `mongodb+srv://${dbUser}:${dbPassword}@webapi.gfh5u.mongodb.net/?retryWrites=true&w=majority&appName=WebAPI`;
