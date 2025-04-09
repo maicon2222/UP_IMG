@@ -16,6 +16,18 @@ const port = process.env.PORT || 3000;
 // Importa o roteador da imagens para gerenciar as rotas criadas
 const pictureRouter = require("./routes/picture");
 
+// Configuração de CORs
+app.use((req, res, next) => {
+  // Permitindo qualquer origem req. Para o servidor
+  res.header('Access-Control-Allow-Origin', "*");
+  // Permitindo os métodos nas req.
+  res.header('Access-Control-Allow-Methods', "GET, POST, DELETE");
+  // Permitindo que o cabeçalho Content-Type, seja enviando nas req
+  res.header('Access-Control-Allow-Headers', "Contentn-Type");
+  // Chama a rota
+  next();
+});
+
 // Define que todas as rotas são "localhost:3000/pictures"
 app.use("/pictures", pictureRouter);
 
