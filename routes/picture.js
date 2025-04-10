@@ -22,8 +22,11 @@ router.get("/:id/image", PictureController.getImage);
 // Definindo a Rota DELETE para apagar imagens
 router.delete("/:id", PictureController.remove); // Corrigido para incluir a barra antes de :id
 
+// Definindo a rota GET de foto especifica
+router.get("/:id/imagem",PictureController.getImage)
+ 
 // Definindo a rota put 
-router.put("/:id", upload.single("file"), PictureController.update);
+// router.put("/:id", upload.single("file"), PictureController.update);
 
 
 // Exportando o arquivo para utilizar no app.js

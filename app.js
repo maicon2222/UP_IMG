@@ -31,6 +31,8 @@ app.use((req, res, next) => {
 // Define que todas as rotas são "localhost:3000/pictures"
 app.use("/pictures", pictureRouter);
 
+
+
 // Inicia o servidor, e exibe uma mensagem ao usuario
 app.listen(port, () => {
   console.log(`O servidor executa na porta ${port}`);
