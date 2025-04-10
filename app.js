@@ -1,4 +1,4 @@
-// Importando o Expresspara criar o servidor e chamar as rotas
+// Importa o Express para criar o servidor e chamar as rotas
 const express = require("express");
 
 // Cria uma instância do Express
@@ -13,25 +13,23 @@ require("./db");
 // Define a porta do servidor, ou do .ENV ou 3000 por padrão
 const port = process.env.PORT || 3000;
 
-// Importa o roteador da imagens para gerenciar as rotas criadas
+// Importa o roteador de imagens para gerenciar as rotas criadas
 const pictureRouter = require("./routes/picture");
 
-// Configuração de CORs
+// Configuração de CORS
 app.use((req, res, next) => {
-  // Permitindo qualquer origem req. Para o servidor
-  res.header('Access-Control-Allow-Origin', "*");
+  // Permitindo qualquer origem req. para o Servidor
+  res.header("Access-Control-Allow-Origin", "*");
   // Permitindo os métodos nas req.
-  res.header('Access-Control-Allow-Methods', "GET, POST, DELETE");
-  // Permitindo que o cabeçalho Content-Type, seja enviando nas req
-  res.header('Access-Control-Allow-Headers', "Contentn-Type");
-  // Chama a rota
+  res.header("Access-Control-Allow-Methods", "GET, POST, DELETE");
+  // Permite que o cabeçalho Content-Type, seja enviado nas req.
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  // Chama a rota de processamento
   next();
 });
 
 // Define que todas as rotas são "localhost:3000/pictures"
 app.use("/pictures", pictureRouter);
-
-
 
 // Inicia o servidor, e exibe uma mensagem ao usuario
 app.listen(port, () => {

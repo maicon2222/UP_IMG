@@ -1,16 +1,16 @@
-// Importa o models Picture para interagir com o DB 
+// Importa o models Picture para interagir com o DB
 const Picture = require("../models/Picture");
 
-// Função para criar uma nova imagem no banco de dados 
+// Função para criar uma nova imagem no banco de dados
 exports.create = async (req, res) => {
   try {
     // Obtém o nome da img do corpo da requisição
     const { name } = req.body;
 
-    // Obtém o arquivo req. (usado pelo Multer para fechar o Upload)
+    // Obtém o arquivo da req. (Usado pelo Multer para fazer o Upload)
     const file = req.file;
 
-    // Cria uma nova instância com o nome e imagem
+    // Cria uma nova instância com nome  e imagem
     const picture = new Picture({
       name,
       image: file.buffer,
@@ -22,45 +22,44 @@ exports.create = async (req, res) => {
 
     // Retorna a resposta com a img. e uma msg. de sucesso
     res.json({ picture, msg: "Imagem salva com sucesso!" });
-  } catch (error) {
-    // Em caso de erro, Retorna uma msg. com Erro
+  } catch (err) {
+    // Em caso de erro, retorna uma msg. com erro 500
     res.status(500).json({ message: "Erro ao salvar imagem!" });
   }
 };
 
-// Função para encontrar todas as imagens no banco de dados 
+// Função para encontrar todas as imagens no banco de dados
 exports.findAll = async (req, res) => {
   try {
-    // Busca todas as imagens no banco de dados 
+    // Busca todas as imagens no banco de dados
     const pictures = await Picture.find();
 
     // Retorna todas as imagens do DB
-    res.json(pictures);
+    res.json({ pictures, msg: "Imagens buscadas com sucesso!" });
   } catch (err) {
     // Em caso de erro, retorna uma resposta de erro com código 500
     res.status(500).json({ message: "Erro ao buscar imagens!" });
   }
 };
 
-// Função para obter somente uma imagem do DB e local
-exports.getImage = async ( req, res ) => {
+// Função para obter somente uma imagem especifica
+exports.getImage = async (req, res) => {
   try {
-    // Buscando a img. pelo ID fornecido pelo DB
+    // Buscando a img. pelo ID fornececido pelo DB
     const picture = await Picture.findById(req.params.id);
 
-    // Se a img. não for encontrada, retorna um erro 404
+    // Se a img. não foi encontrada, retorna uma erro 404
     if (!picture) {
       return res.status(404).json({ message: "Imagem não encontrada" });
     }
 
-    // Define o tipo da resposta 
-    res.set('Content-Type', picture.contentType);
+    // Define o tipo da resposta para o tipo da imagem
+    res.set("Content-Type", picture.contentType);
 
-    // Mostra a imagem na resposta 
+    // Mostra a imagem na resposta
     res.send(picture.image);
   } catch (error) {
     // Caso ocorra erro, retorna para o usuario
-    res.status(500).json({ message: "Erro ao buscra imagem! "});
-
+    res.status(500).json({ message: "Erro ao buscar imagem!" });
   }
 };
