@@ -10,6 +10,7 @@ const elements = {
     fileInput: document. getElementById("file"), // Input do arquivo de foto
 }
 
+
 // Configuração da aplicação
 const config = {
     apiUrl: "http://localhost:4000/pictures", // Endpoint da API
@@ -110,7 +111,7 @@ function renderPhotoGrid(photos) {
             // Exibe uma notificação para o User
             showNotification("foto enviada com sucesso!");
             // Chama a função para fechar o Model
-            closseUploadModal();
+            closeUploadModal();
             // Reseta os campos do formulario
             elements.uploadForm.reset();
             // Recarrega a lista de fotos para mostar a nova foto
@@ -150,7 +151,7 @@ function renderPhotoGrid(photos) {
         formData.append("file", elements.fileInput.files[0]); // Adiciona o arquivo
      
         // Chama a função de Upload
-        uploadNewPhoto(photos);
+        uploadNewPhoto(formData);
     }
 
     // Função principal de carregamento
@@ -160,21 +161,25 @@ function renderPhotoGrid(photos) {
     }
 
     // Configura todos os eventos da aplicação (centraliza a configuração)
-    function setupEventListeners() {
+    function setupEventListener() {
         // Botão "Adicionar foto" abre o modal
         elements.addPhotoButton.addEventListener("click", openUploadModal);
         // Botão "X" fecha o moal
         elements.closeButton.addEventListener("click", closeUploadModal);
         // Click fora do modal (fechar)
-        window.uploadForm.addEventListener("click", handleOutsideClick);
+        window.addEventListener("click", handleOutsideClick);
         // Submit do formulário chama a função de upload
         elements.uploadForm.addEventListener("submit", handleFormSubmit);
     }
+
+
 
     /* Inicialização da aplicação */
 
     // Inicia a aplicação quando o DOM estiver pronto
     document.addEventListener("DOMContentLoaded", () => {
-        setupEventListeners(); // configura todos os eventos
+        setupEventListener(); // configura todos os eventos
         loadAnDisplayPhotos(); // carrega e exibe as fotos iniciais
     });
+    
+    

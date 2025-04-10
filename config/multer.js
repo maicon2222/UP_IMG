@@ -8,8 +8,8 @@ const storage = multer.memoryStorage();
 const upload = multer ({
     storage, 
     limits: {
-        fileSize: 5 * 1024 * 1024, //limite do SMD
-    },
+        fileSize: 5 * 1024 * 1024 //limite do SMD
+    }
 }); 
 
 // Exporta para utilizar em outro arquivo
