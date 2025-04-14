@@ -63,3 +63,17 @@ exports.getImage = async (req, res) => {
     res.status(500).json({ message: "Erro ao buscar imagem!" });
   }
 };
+
+// // Função para deletar uma imagem 
+exports.deleteImage = async (req, res) => {
+  try {
+    const picture = await Picture.findByIdAndDelete(req.params.id);
+    if (!picture) {
+      return res.status(404).json({ message: "Imagem não encontrada" });
+    }
+    res.json({ message: "Imagem deletada com sucesso!" });
+  } catch (error) {
+    res.status(500).json({ message: "Erro ao Deletar a imagem!" });
+
+  }
+};

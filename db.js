@@ -24,6 +24,3 @@ main().catch((err) => console.log(err));
 
 // Exporta a função para utilizar em outro arquivo
 module.exports = main;
-
-
-

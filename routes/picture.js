@@ -10,6 +10,8 @@ const upload = require("../config/multer");
 // Importa o controlador da IMg, onde tem todas as funções e busca
 const PictureController = require("../controllers/Picturecontroller");
 
+// const PictureController = require("../controllers/Picturecontroller");
+
 // Definindo a rota POST para criar, e fazer upload da imagem
 router.post("/", upload.single("file"), PictureController.create);
 
@@ -18,6 +20,9 @@ router.get("/", PictureController.findAll);
 
 // Rota para obter uma imagem específica
 router.get("/:id/image", PictureController.getImage);
+
+// // Rota para deletar uma imagem
+router.delete("/:id/image", PictureController.deleteImage); 
 
 // Exportando o arquivo para utilizar no app.js
 module.exports = router;
