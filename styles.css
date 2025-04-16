@@ -87,6 +87,17 @@
     transition: transform 0.3s;
   }
   
+  .delete-btn{
+    background: rgb(255, 0, 0);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgb(0, 0, 0);
+    transition: transform 0.3s;
+  }
+
+  .delete-btn:hover{
+    background-color: rgb(56, 255, 30);
+  }
   .photo-card:hover {
     transform: translateY(-5px);
   }
