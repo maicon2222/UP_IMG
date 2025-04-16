@@ -88,7 +88,7 @@ function createPhotoCardElement(photo) {
       <div class="photo-name">${photo.name}</div>
 
   <!-- Cria um botão de deletar com um ID de foto e um título -->
-      <button class="delete-btn" data-id="${photo._id}" title="Deletar imagem">deletar</button>
+      <button class="delete-btn" corinthians-id="${photo._id}" title="Deletar imagem">deletar</button>
 
     </div>
   `;
