@@ -7,7 +7,7 @@ pids
 *.pid 
 *.seed
 
-# Diretorios de dpendencias
+# Diretorios de dependencias
 node_modules/
 
 # diretorios de dependencias

@@ -140,7 +140,7 @@ async function uploadNewPhoto(formData) {
 async function deletePhoto(id) {
   try {
     // Faz uma requisição DELETE para o servidor com o ID da imagem
-    const response = await fetch(`${config.apiUrl}/${id}/image`, {
+    const response = await fetch(`${config.apiUrl}/${id}`, {
       method: "DELETE",
     });
     // mostra que a resposta não foi bem-sucedida

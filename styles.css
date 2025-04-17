@@ -86,14 +86,17 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
   }
-  
-  .delete-btn{
-    background: rgb(255, 0, 0);
-    border-radius: 10px;
+
+  .delete-btn {
+    background: #ff0000; 
+    border-radius: 0; /* Tornar o botão quadrado */
     overflow: hidden;
     box-shadow: 0 2px 5px rgb(0, 0, 0);
-    transition: transform 0.3s;
-  }
+    color: #ffffff; /* Cor  letra  */
+    font-size: 15px;/* tamanho da fonte */
+    padding: 4px 10px; /* Aumentar o tamanho do botão */
+    cursor: grab;
+}
 
   .delete-btn:hover{
     background-color: rgb(56, 255, 30);
