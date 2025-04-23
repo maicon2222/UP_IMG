@@ -7,7 +7,7 @@ pids
 *.pid 
 *.seed
 
-# Diretorios de dependencias
+# Diretorios de dpendencias
 node_modules/
 
 # diretorios de dependencias
@@ -15,3 +15,4 @@ dist/
 build/
 
 .env
+
